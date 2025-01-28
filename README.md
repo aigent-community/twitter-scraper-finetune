@@ -7,18 +7,17 @@ Pipeline for generating AI character files and training datasets by scraping pub
 ## Setup
 
 1. Install dependencies:
+   
    ```bash
-   npm install
+   bun i
    ```
 
 2. Copy the `.env.example` into a `.env` file:
+   
    ```properties
    # (Required) Twitter Authentication
    TWITTER_USERNAME=     # your twitter username
    TWITTER_PASSWORD=     # your twitter password
-
-   # (Optional) Blog Configuration
-   BLOG_URLS_FILE=      # path to file containing blog URLs
 
    # (Optional) Scraping Configuration
    MAX_TWEETS=          # max tweets to scrape
@@ -32,41 +31,22 @@ Pipeline for generating AI character files and training datasets by scraping pub
 
 ### Twitter Collection
 ```bash
-npm run twitter -- username
+bun run twitter -- username
 ```
-Example: `npm run twitter -- pmarca`
-
-### Blog Collection
-```bash
-npm run blog
-```
+Example: `bun run twitter -- tomkowalczyk`
 
 ### Generate Character
 ```bash
-npm run character -- username
+bun run character -- username YYYY-MM-DD
 ```
-Example: `npm run character -- pmarca`
+Example: `bun run character -- tomkowalczyk 2025-01-28`
 
 ### Finetune
 ```bash
-npm run finetune
+bun run finetune
 ```
 
 ### Finetune (with test)
 ```bash
-npm run finetune:test
+bun run finetune:test
 ```
-
-### Generate Virtuals Character Card
-https://whitepaper.virtuals.io/developer-documents/agent-contribution/contribute-to-cognitive-core#character-card-and-goal-samples
-
-Run this after Twitter Collection step 
-```bash
-npm run generate-virtuals -- username date 
-```
-
-Example: `npm run generate-virtuals -- pmarca 2024-11-29`
-Example without date: `npm run generate-virtuals -- pmarca`
-
-The generated character file will be in the `pipeline/[username]/[date]/character/character.json` directory.
-The generated tweet dataset file will be in `pipeline/[username]/[date]/raw/tweets.json`.

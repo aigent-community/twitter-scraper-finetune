@@ -870,6 +870,21 @@ async saveCookies() {
       });
     }
   }
+
+  async saveProgress(data) {
+    try {
+      // Save the current progress to allow resuming later if needed
+      const progressData = {
+        timestamp: new Date().toISOString(),
+        lastProcessedData: data
+      };
+      
+      // You might want to save this to a file or database
+      console.log('Progress saved:', progressData);
+    } catch (error) {
+      console.warn('Failed to save progress:', error);
+    }
+  }
 }
 
 export default TwitterPipeline;

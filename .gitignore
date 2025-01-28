@@ -3,3 +3,6 @@ node_modules/
 pipeline/
 characters/
 cookies/
+aigent/
+
+.DS_Store
